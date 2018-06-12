@@ -1,0 +1,33 @@
+ //スペースキーで発射、その後A・Dキーで左・右変化
+
+
+    public float pow;   //ボールに与える力
+    public float right; //右変化の係数
+    public float left;　//左変化の係数
+
+    public Rigidbody rb;
+
+	// Use this for initialization
+	void Start () {
+		
+	}
+	
+	// Update is called once per frame
+	void Update () {
+
+        if (Input.GetKeyDown(KeyCode.Space)) //ボール発射の条件 
+        {
+            rb.AddForce(transform.forward * pow);
+        }
+
+        if (Input.GetKeyDown(KeyCode.A))　//右変化の条件
+        {
+            rb.AddForce(new Vector3(-1*right, 0f, 0f));
+        }
+
+        if (Input.GetKeyDown(KeyCode.D))  //左変化の条件
+        {
+            rb.AddForce(new Vector3(left, 0f, 0f));
+        }
+    }
+}
